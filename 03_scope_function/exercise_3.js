@@ -20,6 +20,12 @@ Pada usia 3 tahun (> 24 tahun) dan seterusnya umur kucing adalah 4 kali umur man
 Buat sebuah ARROW function yang menerima parameter umur kucing berdasarkan perhitungan tahun manusia.
 
 
+4-------
+Buat sebuah function untuk mengubah format semua string menjadi huruf kecil.
+Menerima 1 parameter string
+Gunakan single line block function
+Output adalah string yang telah diubah formatnya menjadi lower case
+Gunakan built in method string
 
 */
 
@@ -97,3 +103,42 @@ const umurKucingSaatIni = 4;
 const umurKucingDalamTahunManusia = hitungUmurKucing(umurKucingSaatIni);
 
 console.log(`Umur kucing ${umurKucingSaatIni} tahun dalam tahun manusia adalah ${umurKucingDalamTahunManusia} tahun.`);
+
+
+
+
+// --- Ans-4.Ops 1 single line block function
+const ubahFormat = (jadiKecil) => jadiKecil.toLowerCase() ;
+
+console.log(ubahFormat("JADI KECIL"));
+
+
+
+
+
+// --- Ans-4.Ops 2 tanpa build function bawaan JS
+const ubahFormatLagi = (jadiKecilLagi) => {
+  let hasilFormat = "";
+
+  for (let i = 0; i < jadiKecilLagi.length; i++) {
+    let huruf = jadiKecilLagi[i];
+    
+    // mengubah huruf kapital jadi biasa
+    if (huruf >= "A" && huruf <= "Z") {
+      // pakai ASCII code untuk konfersi
+      hasilFormat += String.fromCharCode(huruf.charCodeAt(0) + 32);
+    } else {
+      // menambahkan huruf / karakter yang tidak bisa di konversi
+      hasilFormat += huruf;
+    }
+  }
+
+  return hasilFormat;
+}
+
+// Contoh penggunaan
+const stringInput = "JADI KECIL  laGI DonG";
+const stringOutput = ubahFormatLagi(stringInput);
+
+console.log(`String setelah diubah ke huruf kecil: ${stringOutput}`);
+
